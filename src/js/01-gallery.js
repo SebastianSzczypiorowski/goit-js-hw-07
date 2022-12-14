@@ -10,3 +10,12 @@ const imageMarkup = galleryItems.map(
     `<li><img class="img" src="${e.preview}" alt="${e.description}" /></li>`
 );
 ul.insertAdjacentHTML("beforeend", imageMarkup);
+
+const instance = basicLightbox.create(
+  `<img src="${galleryItems.original}" alt="${galleryItems.description}"/>`
+);
+function modalWindow(e) {
+  instance.show();
+}
+
+gallery.addEventListener("click", modalWindow);
