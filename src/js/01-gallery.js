@@ -16,13 +16,12 @@ const imageMarkup = galleryItems.map(
 
 ul.insertAdjacentHTML("beforeend", imageMarkup);
 
-const largeImage = galleryItems.original;
+const largeImage = document.querySelector("img").dataset.source;
 const instance = basicLightbox.create(`<img src="${largeImage}">`);
 
 function modalWindow(e) {
   e.preventDefault;
-
-  instance.show();
+  event.target = instance.show();
 }
 
 gallery.addEventListener("click", modalWindow);
