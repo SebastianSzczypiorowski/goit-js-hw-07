@@ -16,14 +16,21 @@ const imageMarkup = galleryItems.map(
 
 ul.insertAdjacentHTML("beforeend", imageMarkup);
 
+const largeImage = galleryItems.original;
+const instance = basicLightbox.create(`<img src="${largeImage}">`);
+
 function modalWindow(e) {
   e.preventDefault;
-  const img = document.querySelector(".img");
-  const largeImg = img.getAttribute("src");
-  console.log(largeImg);
-  const instance = basicLightbox.create(`<h1>Elo</h1>`);
 
   instance.show();
 }
 
 gallery.addEventListener("click", modalWindow);
+
+// const largeImage = document.querySelector("img").dataset.source;
+// const instance = basicLightbox.create(`<img src="${largeImage}">`);
+// function selectImage(event) {
+//   event.preventDefault();
+//   event.target = instance.show();
+// }
+// gallery.addEventListener("click", selectImage);
