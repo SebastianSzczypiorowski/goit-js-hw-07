@@ -46,7 +46,6 @@
   display: flex;
   flex-wrap: wrap;
   flex-basis: calc(100% / 3);
-  gap: 5px;
   list-style-type: none;
 }
 .img {
