@@ -42,13 +42,3 @@
 .gallery__link:hover {
   cursor: zoom-in;
 }
-.gallery__list {
-  display: flex;
-  flex-wrap: wrap;
-  flex-basis: calc(100% / 3);
-  list-style-type: none;
-}
-.img {
-  width: 100%;
-  height: auto;
-}

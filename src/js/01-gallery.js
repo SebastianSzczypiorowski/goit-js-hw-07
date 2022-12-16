@@ -1,35 +1,31 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
-
 const gallery = document.querySelector(".gallery");
+galleryItems.forEach((e) => {
+  gallery.insertAdjacentHTML(
+    "beforeend",
+    `<div class="gallery__item">
+  <a class="gallery__link" href="${e.original}">
+    <img
+      class="gallery__image"
+      src="${e.preview}"
+      data-source="${e.original}
+      alt="${e.description}"
+    />
+  </a>
+</div>`
+  );
+});
 
-const ul = document.createElement("ul");
+function modalOpen(e) {
+  event.preventDefault;
+  const instance = basicLightbox.create(
+    `<img 
+    src="${e.target.dataset.source}"
+    alt="${e.alt}"/>`
+  );
 
-ul.classList.add("gallery__list");
-
-gallery.append(ul);
-
-const imageMarkup = galleryItems.map(
-  (e) =>
-    `<li><img class="img" src="${e.preview}" alt="${e.description}" /></li>`
-);
-
-ul.insertAdjacentHTML("beforeend", imageMarkup);
-
-const largeImage = document.querySelector("img").dataset.source;
-const instance = basicLightbox.create(`<img src="${largeImage}">`);
-
-function modalWindow(e) {
-  e.preventDefault;
-  event.target = instance.show();
+  instance.show();
 }
 
-gallery.addEventListener("click", modalWindow);
-
-// const largeImage = document.querySelector("img").dataset.source;
-// const instance = basicLightbox.create(`<img src="${largeImage}">`);
-// function selectImage(event) {
-//   event.preventDefault();
-//   event.target = instance.show();
-// }
-// gallery.addEventListener("click", selectImage);
+gallery.addEventListener("click", modalOpen);
