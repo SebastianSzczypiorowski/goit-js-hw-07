@@ -18,14 +18,19 @@ galleryItems.forEach((e) => {
 });
 
 function modalOpen(e) {
-  event.preventDefault;
-  const instance = basicLightbox.create(
-    `<img 
-    src="${e.target.dataset.source}"
-    alt="${e.alt}"/>`
-  );
-
-  instance.show();
+  if (e.target.classList.contains("gallery__image")) {
+    const instance = basicLightbox.create(
+      `<img src = ${e.target.dataset.source}>`
+    );
+    e.preventDefault;
+    console.log(e.target.alt);
+    instance.show();
+    gallery.addEventListener("keydown", (e) => {
+      if (e.code === "Escape") {
+        instance.close();
+      }
+    });
+  }
 }
 
 gallery.addEventListener("click", modalOpen);
