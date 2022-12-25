@@ -5,7 +5,7 @@ galleryItems.forEach((e) => {
   gallery.insertAdjacentHTML(
     "beforeend",
     `<div class="gallery__item">
-  <a class="gallery__link" href="${e.original}">
+  <a class="gallery__link">
     <img
       class="gallery__image"
       src="${e.preview}"
@@ -25,8 +25,8 @@ function modalOpen(e) {
     e.preventDefault;
     console.log(e.target.alt);
     instance.show();
-    gallery.addEventListener("keydown", (e) => {
-      if (e.code === "Escape") {
+    document.addEventListener("keydown", function escapeKey(e) {
+      if (e.key === "Escape") {
         instance.close();
       }
     });
